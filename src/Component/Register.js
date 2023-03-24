@@ -5,6 +5,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import axios from "../Api/axios";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -62,7 +63,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify([{ userName, pwd }]),
+        JSON.stringify([{ userName: userName, pwd: pwd }]),
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -226,7 +227,7 @@ const Register = () => {
             Already registered?
             <br />
             <span className="line">
-              <a href="/login">Sign In</a>
+              <Link to="/login">Sign In</Link>
             </span>
           </p>
         </section>

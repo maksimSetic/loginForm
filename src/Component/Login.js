@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "../Context/AuthProvider";
-
+import { Link } from "react-router-dom";
 import axios from "../Api/axios";
 const REGISTER_URL = "https://api.npoint.io/75d66fd964e4cb9cf11a";
 
@@ -96,7 +96,7 @@ const Login = () => {
             Need an Account?
             <br />
             <span className="line">
-              <a href="/">Sign Up</a>
+              <Link to="/">Sign Up</Link>
             </span>
           </p>
         </section>
