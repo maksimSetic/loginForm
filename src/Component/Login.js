@@ -54,7 +54,9 @@ const Login = () => {
     <>
       {success ? (
         <section>
-          <h1>You are logged in!</h1>
+          <h1 style={{ fontFamily: "Sacramento", fontSize: "38px" }}>
+            You are logged in!
+          </h1>
           <br />
           <p>
             <a href="/login">Go to Home</a>
@@ -67,11 +69,25 @@ const Login = () => {
             className={errMsg ? "errmsg" : "offscreen"}
             aria-live="assertive"
           >
-            {errMsg}
+            <div class="col-sm-12">
+              <div role="alert" data-brk-library="component__alert">
+                {errMsg}
+              </div>
+            </div>
           </p>
-          <h1>Sign In</h1>
+          <h1
+            style={{
+              fontFamily: "Sacramento",
+              fontSize: "44px",
+              fontWeight: 600,
+            }}
+          >
+            Sign In
+          </h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">
+              <i>Username:</i>
+            </label>
             <input
               type="text"
               id="username"
@@ -81,8 +97,9 @@ const Login = () => {
               value={userName}
               required
             />
-
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">
+              <i>Password:</i>
+            </label>
             <input
               type="password"
               id="password"
@@ -90,7 +107,9 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button>Sign In</button>
+            <button style={{ fontFamily: "Sacramento", fontSize: "22px" }}>
+              Log In
+            </button>
           </form>
           <p>
             Need an Account?

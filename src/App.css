@@ -1,20 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Sacramento&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
 html {
-  font-family: "Nunito", sans-serif;
-  font-size: 22px;
-  color: #fff;
+  font-size: 18px;
+  color: #333;
 }
 
 body {
   min-height: 100vh;
-  background-color: dodgerblue;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4286f4, #00d2ff);
 }
 
 .App {
@@ -23,19 +30,25 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 section {
   width: 100%;
-  border-radius: 5%;
   max-width: 420px;
-  min-height: 450px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -48,7 +61,12 @@ form {
 
 a,
 a:visited {
-  color: #fff;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 input[type="text"],
@@ -56,9 +74,19 @@ input[type="password"],
 button,
 textarea {
   font-family: "Nunito", sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 label,
@@ -67,19 +95,24 @@ button {
 }
 
 button {
-  padding: 0.5rem;
+  background-color: #4286f4;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0052cc;
 }
 
 .instructions {
-  width: 200px;
-  transition: 0.1s ease-in;
   font-size: 0.75rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background: #000;
   color: #fff;
   padding: 0.25rem;
-  position: absolute;
-  right: 550px;
+  margin-top: 0.5rem;
+  align-items: center;
+  position: relative;
 }
 
 .instructions > svg {
@@ -92,29 +125,66 @@ button {
 }
 
 .hide {
-  transition: 3s ease-in-out;
   display: none;
 }
 
 .valid {
   color: limegreen;
-  transition: 3s ease-in-out;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
 
 .invalid {
   color: red;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
-
 .errmsg {
-  background-color: lightpink;
-  color: firebrick;
-  font-weight: bold;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
-.line {
-  display: inline-block;
+.alert-simple.alert-info {
+  border: 1px solid rgba(6, 44, 241, 0.46);
+  background-color: rgba(7, 73, 149, 0.12156862745098039);
+  box-shadow: 0px 0px 2px #0396ff;
+  color: #0396ff;
+  text-shadow: 2px 1px #00040a;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.alert-info:hover {
+  background-color: rgba(7, 73, 149, 0.35);
+  transition: 0.5s;
+}
+
+.blue-cross {
+  font-size: 18px;
+  color: #0bd2ff;
+  text-shadow: none;
+}
+
+.fa-times {
+  -webkit-animation: blink-1 2s infinite both;
+  animation: blink-1 2s infinite both;
+}
+
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }

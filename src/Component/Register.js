@@ -48,10 +48,6 @@ const Register = () => {
     setErrMsg("");
   }, [userName, pwd, matchPwd]);
 
-  const handleDelete = async (e) => {
-    axios.delete(REGISTER_URL);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const v1 = USER_REGEX.test(userName);
@@ -89,7 +85,14 @@ const Register = () => {
     <>
       {success ? (
         <section>
-          <h1>Success!</h1>
+          <h1
+            style={{
+              fontFamily: "Sacramento",
+              fontSize: "38px",
+            }}
+          >
+            Success!
+          </h1>
           <p>
             <a href="/login">Sign In</a>
           </p>
@@ -103,11 +106,21 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1>Register</h1>
+          <h1
+            style={{
+              fontFamily: "Sacramento",
+              fontSize: "44px",
+              fontWeight: 600,
+            }}
+          >
+            Register
+          </h1>
+
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
-              Username:
+              <i>Username:</i>
               <FontAwesomeIcon
+                style={{ marginLeft: "20px" }}
                 icon={faCheck}
                 className={validName ? "valid" : "hide"}
               />
@@ -146,7 +159,7 @@ const Register = () => {
             </p>
 
             <label htmlFor="password">
-              Password:
+              <i>Password:</i>
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validPwd ? "valid" : "hide"}
@@ -186,7 +199,7 @@ const Register = () => {
             </p>
 
             <label htmlFor="confirm_pwd">
-              Confirm Password:
+              <i>Confirm password:</i>
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validMatch && matchPwd ? "valid" : "hide"}
@@ -214,11 +227,15 @@ const Register = () => {
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              Must match the first password input field.
+              Must match the first password.
             </p>
 
             <button
               disabled={!validName || !validPwd || !validMatch ? true : false}
+              style={{
+                fontFamily: "Sacramento",
+                fontSize: "22px",
+              }}
             >
               Sign Up
             </button>

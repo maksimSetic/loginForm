@@ -13,3 +13,13 @@ export const AuthProvider = ({ children }) => {
 };
 
 export default AuthContext;
+
+export const AuthProvider2 = ({ children }) => {
+  const [auth, setAuth] = useState({});
+
+  return (
+    <AuthContext.Provider value={{ auth, setAuth }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
