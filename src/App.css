@@ -98,6 +98,7 @@ button {
   background-color: #4286f4;
   color: white;
   cursor: pointer;
+  font-size: 14;
 }
 
 button:hover {
@@ -105,14 +106,21 @@ button:hover {
 }
 
 .instructions {
+  width: 300px;
   font-size: 0.75rem;
   border-radius: 1rem;
   background: #000;
   color: #fff;
   padding: 0.25rem;
   margin-top: 0.5rem;
-  align-items: center;
-  position: relative;
+  position: absolute;
+  right: 25%;
+}
+@media screen and (max-width: 576px) {
+  .instructions {
+    font-size: 0.7rem;
+    right: 1%;
+  }
 }
 
 .instructions > svg {
@@ -137,9 +145,6 @@ button:hover {
   color: red;
   margin-left: 0.5rem;
 }
-.errmsg {
-}
-
 .alert-simple.alert-info {
   border: 1px solid rgba(6, 44, 241, 0.46);
   background-color: rgba(7, 73, 149, 0.12156862745098039);
@@ -186,5 +191,91 @@ button:hover {
   25%,
   75% {
     opacity: 0;
+  }
+}
+.errMsgBox {
+  font-size: 20px;
+}
+
+.rotating-text-wrapper {
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.rotating-text-wrapper h2 {
+  font-size: 1em;
+  margin: 0;
+  padding: 0.3em;
+  color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+.rotating-text-wrapper h2:nth-child(1) {
+  background-color: cornflowerblue;
+  animation-name: rotating-text-1;
+}
+@keyframes rotating-text-1 {
+  0% {
+    transform: translateY(60%);
+  }
+  33% {
+    transform: translateY(5%);
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0;
+  }
+}
+.rotating-text-wrapper h2:nth-child(2) {
+  background-color: tomato;
+  animation-name: rotating-text-2;
+}
+@keyframes rotating-text-2 {
+  0% {
+    transform: translateY(15%);
+    opacity: 0;
+  }
+  33% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  66% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  67% {
+    opacity: 0;
+  }
+}
+.rotating-text-wrapper h2:nth-child(3) {
+  background-color: cornflowerblue;
+  animation-name: rotating-text-3;
+}
+@keyframes rotating-text-3 {
+  66% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  99% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .rotating-text-wrapper {
+    font-size: 0.7rem;
   }
 }

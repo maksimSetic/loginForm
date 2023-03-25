@@ -233,8 +233,7 @@ const Register = () => {
             <button
               disabled={!validName || !validPwd || !validMatch ? true : false}
               style={{
-                fontFamily: "Sacramento",
-                fontSize: "22px",
+                fontSize: "16px",
               }}
             >
               Sign Up

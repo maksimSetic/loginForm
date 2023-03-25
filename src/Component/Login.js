@@ -50,6 +50,38 @@ const Login = () => {
     }
   };
 
+  const handleNonSuccess = () => {
+    return (
+      <div
+        class="col-sm-12"
+        style={{ position: "absolute", zIndex: "2", left: "50%" }}
+      >
+        <div role="alert" data-brk-library="component__alert">
+          <div class="rotating-text-wrapper">
+            <h2>{errMsg}</h2>
+          </div>
+          <p></p>
+        </div>
+      </div>
+    );
+  };
+
+  const handleSuccess = () => {
+    return (
+      <div
+        class="col-sm-12"
+        style={{ position: "absolute", zIndex: "2", left: "50%" }}
+      >
+        <div role="alert" data-brk-library="component__alert">
+          <div class="rotating-text-wrapper">
+            <h2>{errMsg}</h2>
+          </div>
+          <p></p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       {success ? (
@@ -71,7 +103,10 @@ const Login = () => {
           >
             <div class="col-sm-12">
               <div role="alert" data-brk-library="component__alert">
-                {errMsg}
+                <div class="rotating-text-wrapper">
+                  <h2>{errMsg}</h2>
+                </div>
+                <p></p>
               </div>
             </div>
           </p>
@@ -107,7 +142,10 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button style={{ fontFamily: "Sacramento", fontSize: "22px" }}>
+            <button
+              onClick={success ? handleNonSuccess : handleNonSuccess}
+              style={{ fontSize: "16px" }}
+            >
               Log In
             </button>
           </form>
